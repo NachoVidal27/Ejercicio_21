@@ -8,6 +8,7 @@ const userController = require("../controllers/userController");
 router.get("/crear", userController.showCreate);
 router.post("/crear", userController.registerUser);
 router.get("/iniciar-sesion", userController.showLogIn);
+router.get("/log-out", userController.logOutUser);
 router.post("/iniciar-sesion", userController.logInUser);
 router.get("/", userController.store);
 router.get("/:id", userController.show);

@@ -30,6 +30,16 @@ async function registerUser(req, res) {
   res.redirect("/");
 }
 
+async function logOutUser(req, res, next) {
+  req.logout(function (err) {
+    if (err) {
+      return next(err);
+    }
+    console.log("Chau");
+    res.redirect("/");
+  });
+}
+
 const logInUser = passport.authenticate("local", {
   successRedirect: "/admin",
   failureRedirect: "/usuarios/iniciar-sesion",
@@ -74,6 +84,7 @@ module.exports = {
   showLogIn,
   show,
   logInUser,
+  logOutUser,
   registerUser,
   store,
   edit,
